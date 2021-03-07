@@ -1,0 +1,13 @@
+{
+  "name": "the-sickick-api",
+  "version": "1.0.0",
+  "description": "creating api for our cool music application",
+  "main": "index.js",
+  "repository": "localhost:8000",
+  "author": "Moha-Sameh",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
