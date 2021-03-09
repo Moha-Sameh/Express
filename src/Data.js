@@ -1,27 +1,93 @@
-const data = [
+const slugify = require("slugify");
+
+const music = [
   {
-    songname: "Song: When I'm low",
-    songrelease: 2015,
-    play: "Platform: Youtube",
-    id: "SongID #2221",
-    image: "https://i.ytimg.com/vi/lMvZPrXBguQ/maxresdefault.jpg",
+    songname: "Hittem",
+    slug: slugify("hittem"),
+    songrelease: 2014,
+    id: 2221,
+    image: "https://i.ytimg.com/vi/9wL9_HPoDr4/maxresdefault.jpg",
   },
+
   {
-    songname: "Song: G.O.M.D",
+    songname: "Infected",
+    slug: slugify("Infected"),
+    songrelease: 2016,
+    id: 2222,
+    image: "https://playmoss.com/uploads/images/t/r/a/track_919132.jpg",
+  },
+
+  {
+    songname: "World On Fire",
+    slug: slugify("world-on-fire"),
+    songrelease: 2016,
+    id: 2223,
+    image: "https://i.ytimg.com/vi/ZUjS189Sbow/maxresdefault.jpg",
+  },
+
+  {
+    songname: "Say My Name",
+    slug: slugify("say-my-name"),
+    songrelease: 2016,
+    id: 2224,
+    image: "https://pbs.twimg.com/media/DjIZknFW0AEI_QH.jpg",
+  },
+
+  {
+    songname: "Mind Games",
+    slug: slugify("mind-games"),
+    songrelease: 2017,
+    id: 2225,
+    image: "https://ytimg.fastimg.xyz/JImzkv0em6c.jpg",
+  },
+
+  {
+    songname: "Bremuda",
+    slug: slugify("bremuda"),
+    songrelease: 2017,
+    id: 2226,
+    image: "https://i.ytimg.com/vi/nMt00eqovlU/hqdefault.jpg",
+  },
+
+  {
+    songname: "Lost My Way",
+    slug: slugify("lost-my-way"),
     songrelease: 2018,
-    play: "Platform: Youtube",
-    id: "SongID #2222",
-    image:
-      "https://cutewallpaper.org/21/sickick-wallpapers/Sickick-work-Wallpapers-Free-by-ZEDGEa_.jpg",
+    id: 2227,
+    image: "https://i.ytimg.com/vi/4SCp4fQQgV4/maxresdefault.jpg",
   },
+
   {
-    songname: "Game: G.O.M.D",
+    songname: "Kill Me Slowly",
+    slug: slugify("kill-me-slowly"),
+    songrelease: 2019,
+    id: 2228,
+    image: "https://i.ytimg.com/vi/4U9tpiyxGnU/maxresdefault.jpg",
+  },
+
+  {
+    songname: "When I'm low",
+    slug: slugify("when-i'm-low"),
+    songrelease: 2019,
+    id: 2229,
+    image: "https://i1.sndcdn.com/artworks-000559641873-alu8ub-t500x500.jpg",
+  },
+
+  {
+    songname: "Catch Feelings",
+    slug: slugify("catch-feelings"),
     songrelease: 2020,
-    play: "Platform: Youtube",
-    id: "SongID #2223",
-    image:
-      "https://images.genius.com/6c647a8d6f595d09f1a3a30bfe596003.600x600x1.jpg",
+    id: 22230,
+    image: "https://i.ytimg.com/vi/6Aw7H5lHfS8/maxresdefault.jpg",
+  },
+
+  {
+    songname: "Don't You",
+    slug: slugify("don't-you"),
+    songrelease: 2021,
+    id: 2231,
+    image: "https://i.ytimg.com/vi/chTEFQT02Xw/maxresdefault.jpg",
   },
 ];
 
-module.exports = data;
+module.exports = music;
