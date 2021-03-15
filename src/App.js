@@ -2,6 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const music = require("./routes/music");
+const db = require("./db/models");
 
 //intialise app
 const app = express();
@@ -17,4 +18,17 @@ app.get("/", (_, res) => {
 //routes
 app.use("/music", music);
 
-app.listen(8000);
+const run = async () => {
+  try {
+    await db.sequelize.sync();
+    console.log("Connection to the database successful!");
+  } catch (error) {
+    console.error("Error connecting to the database: ", error);
+  }
+
+  await app.listen(8000, () => {
+    console.log("The application is running on localhost:8000");
+  });
+};
+
+run();

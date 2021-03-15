@@ -1,23 +1,34 @@
-let music = require("../Data");
-const slugify = require("slugify");
+const { music } = require("../db/models");
 
-exports.musicDelete = (_, res) => {
-  const { musicID } = _.params;
+exports.createMusic = async (req, res) => {
   try {
-    music = music.filter((anything) => anything.id !== +musicID);
-    res.status(204).end();
+    const newMusic = await music.create(req.body);
+    res.status(201).json(newMusic);
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(500).json({ message: error.message });
   }
 };
-exports.musicList = (_, res) => {
-  res.json(music);
+
+exports.newMusic = async (_, res) => {
+  try {
+    const musics = await music.findAll();
+    res.json(musics);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-exports.musicCreater = (_, res) => {
-  const id = music[music.length - 1].id + 1;
-  const slug = slugify(_.body.songname, { lower: true });
-  const newMusic = { id, slug, ..._.body };
-  music.push(newMusic);
-  res.json(newMusic);
+exports.musicUpdate = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const foundMusic = await music.findByPk(id);
+    if (foundMusic) {
+      await foundMusic.update(req.body);
+      res.status(204).end();
+    } else {
+      res.status(404).json({ message: "Cookie not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
