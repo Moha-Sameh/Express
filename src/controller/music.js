@@ -26,7 +26,26 @@ exports.musicUpdate = async (req, res) => {
       await foundMusic.update(req.body);
       res.status(204).end();
     } else {
-      res.status(404).json({ message: "Cookie not found" });
+      res
+        .status(404)
+        .json({ message: "Music ID must be wrong please try again" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.musicDelete = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const foundMusic = await music.findByPk(id);
+    if (foundMusic) {
+      await foundMusic.destroy();
+      res.status(204).end();
+    } else {
+      res
+        .status(404)
+        .json({ message: "Music ID must be wrong please try again" });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
